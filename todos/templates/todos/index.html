@@ -1,0 +1,46 @@
+{% load static %}
+{% csrf_token %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href={% static 'todos/style.css' %} rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+        <title>Todo List</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <form class="input-form">
+            <p>New Todo</p>
+            <input type="text">
+        </form>
+        <div class="container">
+            <header>
+                <button id="addNewTask">Add New Task</button>
+                <button id="deleteCompletedTasks">Delete Completed Tasks</button>
+            </header>
+            <div id="list">
+                <h1>Things To Do</h1>
+                {% for todo in todos_list %}
+                {{ todo.isCompleted }}
+                <div>
+                    <input type="checkbox" id={{ todo.id }} {% if todo.is_completed %}checked=true{% endif %}>
+                    <label id={{ todo.id }} for={{ todo.id }} class={% if todo.is_completed %}"completedTasks"{% else %}"active"{% endif %}>
+                        {{ todo.text }}
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    
+    </body>
+    <script src={% static 'todos/index.js' %} defer></script>
+</html>

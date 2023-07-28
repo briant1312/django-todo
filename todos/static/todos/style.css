@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body    {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(113, 150, 151);
+}
+
+label {
+    font-family: 'Indie Flower', cursive;
+    font-size: 2rem;
+    color: rgb(63, 63, 63);
+    margin-left: 1rem;
+}
+
+label.active:hover {
+    font-size: 2.05rem;
+}
+
+.input-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    padding: 3rem 5rem;
+    background-color: white;
+    border-radius: 10px;
+    min-width: 50%;
+    opacity: 0;
+    pointer-events: none;
+
+    & input {
+        display: inline-block;
+        font-size: 1.2rem;
+        padding: .5em;
+        width: 100%;
+        margin-inline: auto;
+    }
+
+    & p {
+        font-size: 1.3rem;
+        width: fit-content;
+        margin-inline: auto;
+        padding-bottom: 1rem;
+    }
+}
+
+h1 {
+    font-family: 'Rubik Dirt', cursive;
+    font-size: 3rem;
+    padding-left: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 0%;
+    text-decoration: underline;
+    color: rgb(63, 63, 63);
+}
+
+button {
+    font-family: 'Trebuchet MS';
+    font-weight: 800;
+    font-size: 1.2rem;
+    border-radius: 0.8rem;
+    padding: 0.8rem 1.3rem;
+    margin-top: 2rem;
+    margin-left: 1rem;
+}
+
+#addNewTask {
+    background-color: rgb(187, 189, 190);
+    transition: all  200ms;
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+}
+
+#addNewTask:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px white;
+    color: white;
+    cursor: pointer;
+}
+
+#addNewTask:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px white;
+}
+
+#deleteCompletedTasks {
+    background-color: rgb(56, 56, 56);
+    color: azure;
+    margin-left: 1rem;
+    transition: all  200ms;
+    position: absolute;
+    top: -1rem;
+    left: 12rem;
+    min-width: 16.3rem;
+}
+
+#deleteCompletedTasks:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgb(37, 226, 226);
+    color: rgb(37, 226, 226);
+    cursor: pointer;
+}
+
+#deleteCompletedTasks:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgb(37, 226, 226);
+}
+
+input[type=checkbox] {
+    width: 1.3rem;
+    height: 1.3rem;
+    accent-color: rgb(243, 60, 60);
+}
+
+#list {
+    border-radius: 1rem;
+    min-height: 80%;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    background: url(images/paper.avif);
+    background-size: cover;
+    max-width: 800px;
+}
+
+#list div {
+    padding-left: 3rem;
+}
+
+#list div:first-of-type {
+    padding-top: 1rem;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    min-height: 90vh;
+    position: relative;
+}
+
+.completedTasks {
+    text-decoration: line-through rgb(243, 60, 60);
+    color: rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 62.5em) {
+    .container {
+        width: 60%;
+    }
+
+    :root {
+        font-size: 80%;
+    }
+}
+
+@media only screen and (max-width: 45.63em) {
+    .container {
+        width: 80%;
+    }
+}
